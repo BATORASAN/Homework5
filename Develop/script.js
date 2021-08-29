@@ -1,4 +1,13 @@
-currentDay = "";
+var timeDisplay = $('#currentDay');
+
+
+
+function displayDate() {
+  var rightNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
+  timeDisplay.text(rightNow);
+}
+
+
 
 timeBlockValues = [
   {
@@ -44,10 +53,6 @@ var scheduleSection = timeBlockValues.map(function(hourBlock){
 console.log (scheduleSection)
 $(".container").append(scheduleSection)
 
-// Time blocks
+displayDate();
 
-// Enter event
-
-// Save button
-
-// Include local storage
+setInterval(displayDate, 1000);
